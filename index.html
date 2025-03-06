@@ -16,9 +16,68 @@
                 overflow-x: hidden;
                 background: url(images/LoginPageBackground.png) no-repeat center fixed;
                 background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f0f0f0;
+            }
+            .logo {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                max-width: 250px;
+            }
+            .label {
+                text-align: left;
+            }
+            .forgor {
+                text-align: right;
+            }
+            .login-container {
+            background-color: white;
+            padding: 100px;
+            width: 500px;
+            box-shadow: 0 4px 8px rgba(181, 153, 206, 0.815);
+            border-radius: 50px;
+            text-align: center;
+            }
+            .login-container h2 {
+            margin-bottom: 20px;
+            }
+            .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px; /* Rounded corners for inputs */
+            }
+            .login-container button {
+            width: 40%;
+            padding: 10px;
+            background-color: #DACCE6;
+            color: white;
+            border: none;
+            border-radius: 20px; /* Rounded button */
+            cursor: pointer;
+            transition: background 0.3s ease;
+            }
+            .login-container button:hover {
+            background-color: #B599CE;
             }
         </style>
     </head>
+
     <body id="page-top">
+        <img src="images/JMULogo.png" alt="Logo" class="logo" style="max-width: 250px;">
+        <div class="login-container">
+            <h6 class="label">Work Email</h6>
+            <input type="text">
+            <h6 class="label">Password</h6>
+            <input type="password">
+            <p class="forgor"><small>Forgot Password?</small></p>
+            <button>Login</button>
+        </div>
     </body>
 </html>
