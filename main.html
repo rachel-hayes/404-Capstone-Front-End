@@ -12,72 +12,64 @@
   <link href="styles.css" rel="stylesheet">
   <!-- END LOADING BOOTSTRAP CSS -->
         <style>
+            html, body {
+                padding: 0;
+                height: 100vh;
+            }
+            .container {
+                display: flex;
+                height: 100%;
+            }
+            .column {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #aaa;
+                height: 100%;
+            }
+            .logo {
+                align-items: top;
+                background-color: white;
+
+            }
             .sidebar {
-        background-color: #450084;
-        color: #450084;
-        min-height: 100vh;
-        padding: 1rem;
-        }
-            .section {
-        border-left: 1px solid #ccc;
-        padding: 1rem;
-        height: 50vh;
-        overflow: auto;
-        }
-        .top-section-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        }
-        .top-section-content img {
-        max-width: 150px;
-        height: auto;
-        }
-        .right-section {
-        background-color: white;
-        color: white;
-        min-height: 100vh;
-        padding: 1rem;
-        border-left: 1px solid #ccc;
-        }
+                flex: .5;
+                background: #450084;
+                color: white;
+                min-height: 100vh;
+                padding: 1rem;
+            }
+            .main-content {
+                flex: 1.5; /* wider middle column */
+                background-color: #eee;
+            }
+            .right-section {
+                flex: 1; /* narrow side columns */
+            }
         </style>
     </head>
 
-    <body id="page-top">
+    <body>
         <div class="container-fluid">
             <div class="row">
-              <!-- Sidebar -->
-              <div class="col-md-3 sidebar">
-                <h4>Sidebar</h4>
-                <p>Navigation or menu items here</p>
-              </div>
-        
-        <div class="col-md-9 d-flex p-0">
-            <!-- Main content with two vertical sections -->
-            <div class="flex-grow-1">
-                <div class="d-flex flex-column h-100">
-                    <div class="section flex-fill">
-                        <div class="top-section-content">
-                            <div>
-                                <h5><strong>Emily Drake</strong></h5>
-                                <p>Welcome back!</p>
-                            </div>
-                            <img src="images/persona1.png" alt="Emily">
+
+                <div class="column sidebar">
+                    <img src="images/JMUCare.png" alt="jmucarelogo" class="logo img-fluid w-100">
+                </div>
+
+                <div class="column main-content">
+                    <div class="top-section-content justify-content-between align-items-start mb-4">
+                        <div>
+                            <h5>Middle part</h5>
                         </div>
-                    </div>
-                    <div class="section flex-fill">
-                        <h5>Bottom Section</h5>
-                        <p>More content here...</p>
+
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="right-section">
-            <h5>Right Section</h5>
-            <p>Additional content or tools can go here.</p>
-        </div>
-        </div>
+                <div class="column right-section">
+                    <h5>Right section</h5>
+                </div>
+            </div>
         </div>
     </body>
 </html>
