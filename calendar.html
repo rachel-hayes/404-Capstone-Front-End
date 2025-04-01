@@ -75,6 +75,26 @@
             border-radius: 50px;
             text-align: top;
             }
+                <style>
+   
+        .main-content {
+            flex-grow: 1;
+            padding: 50px;
+        }
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .calendar th, .calendar td {
+            border: 1px solid #ddd;
+            text-align: center;
+            height: 60px;
+        }
+        .calendar th {
+            background-color: #6A0DAD;
+            color: white;
+        }
+
         </style>
     </head>
 
@@ -99,75 +119,78 @@
                 </div>
                 <!---navigation ending --->
 
-                <div class="column main-content">
-                    
-        <div class="container mt-4">
-        <div class="calendar border rounded p-3">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <button class="btn btn-primary">&#9665;</button>
-                <h4>Month Year</h4>
-                <button class="btn btn-primary">&#9655;</button>
-            </div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class='text-muted'>30</td><td class='text-muted'>31</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
-                    </tr>
-                    <tr>
-                        <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
-                    </tr>
-                    <tr>
-                        <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
-                    </tr>
-                    <tr>
-                        <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
-                    </tr>
-                    <tr>
-                        <td>27</td><td>28</td><td>29</td><td>30</td><td class='text-muted'>1</td><td class='text-muted'>2</td><td class='text-muted'>3</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4>July 2024</h4>
+            <button class="btn btn-primary">Add Event +</button>
         </div>
+        <table class="calendar table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Thu 14</th>
+                    <th>Fri 15</th>
+                    <th>Sat 16</th>
+                    <th>Sun 17</th>
+                    <th>Mon 18</th>
+                    <th>Tue 19</th>
+                    <th>Wed 20</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>6 AM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>7 AM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>8 AM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>9 AM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>10 AM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>11 AM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>12 PM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>1 PM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>2 PM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>3 PM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>4 PM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>5 PM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>6 PM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>7 PM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>8 PM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                 <tr>
+                    <td>9 PM</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-                <div class="container mt-4">
-        <div class="calendar border rounded p-3">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <button class="btn btn-primary">&#9665;</button>
-                <h4>Week of Month Year</h4>
-                <button class="btn btn-primary">&#9655;</button>
-            </div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Sunday</th>
-                        <th>Monday</th>
-                        <th>Tuesday</th>
-                        <th>Wednesday</th>
-                        <th>Thursday</th>
-                        <th>Friday</th>
-                        <th>Saturday</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="day">1</td>
-                        <td class="day">2</td>
-                        <td class="day">3</td>
-                        <td class="day">4</td>
-                        <td class="day">5</td>
-                        <td class="day">6</td>
-                        <td class="day">7</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+   
                 </div>
             </div>
         </div>
