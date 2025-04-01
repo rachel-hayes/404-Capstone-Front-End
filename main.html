@@ -332,14 +332,13 @@
             </div>
 
             <!-- Stats -->
-            <div class="right-panel">
-              <p class="fw-bold">Weekly Activity</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span>80%</span>
-                <i class="bi bi-bar-chart fs-4"></i>
-              </div>
-            </div>
-
+            <div class="right-panel clickable-card" data-bs-toggle="modal" data-bs-target="#weeklyActivityModal" style="cursor: pointer;">
+  <p class="fw-bold">Weekly Activity</p>
+  <div class="d-flex justify-content-between align-items-center">
+    <span>80%</span>
+    <i class="bi bi-bar-chart fs-4"></i>
+  </div>
+</div>
             <div class="right-panel">
               <p class="fw-bold">Total tasks Completed</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -360,6 +359,29 @@
       </div>
     </div>
   </div>
+  <!-- Weekly Activity Modal -->
+<div class="modal fade" id="weeklyActivityModal" tabindex="-1" aria-labelledby="weeklyActivityModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: #F4EFE1;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="weeklyActivityModalLabel">Weekly Activity Overview</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Tasks Completed:</strong> 40</p>
+        <p><strong>Hours Worked:</strong> 32 hrs</p>
+        <p><strong>Projects Engaged:</strong> 5</p>
+        <p><strong>Most Active Day:</strong> Wednesday</p>
+        <p><strong>Top Project:</strong> Fintech App UI</p>
+        <hr>
+        <h6>Graph coming soon!</h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
