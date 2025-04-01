@@ -13,7 +13,6 @@
   <!-- END LOADING BOOTSTRAP CSS -->
         <style>
             html, body {
-                padding: 0;
                 height: 100vh;
             }
             .container {
@@ -35,7 +34,7 @@
             }
             .logo {
                 position: relative;
-                vertical-align: top;
+                vertical-align: t;
                 background-color: white;
             }
             .tab {
@@ -65,7 +64,7 @@
             width: 500px;
             box-shadow: 0 4px 8px rgba(181, 153, 206, 0.815);
             border-radius: 50px;
-            text-align: top;
+            text-align: left;
             }
             .project-window {
             background-color: #eee;
@@ -73,7 +72,7 @@
             width: 500px;
             box-shadow: 0 4px 8px rgba(181, 153, 206, 0.815);
             border-radius: 50px;
-            text-align: top;
+            text-align: left;
             }
    
         .main-content {
@@ -82,8 +81,11 @@
         }
         .calendar {
             width: 100%;
-            border-collapse: collapse;
-        }
+            border-collapse: collapse; 
+            background-color: #F4EFE1;}
+
+           .calendar td {background-color: #FAF3DD;}
+
         .calendar th, .calendar td {
             border: 1px solid #ddd;
             text-align: center;
@@ -93,7 +95,37 @@
             background-color: #6A0DAD;
             color: white;
         }
+        .calendar th.selected {
+    background-color: #DACCE6 !important; /* Highlighted yellow */
+    color: black;
+}
+.modal-content {
+    background-color: #F4EFE1; /* Light gray background */
+    color: #343a40; /* Dark text */
+}
+.btn-primary {
+    background-color: #6A0DAD; /* Custom purple */
+    border-color: #6f42c1;
+}
 
+.btn-primary:hover {
+    background-color: #DACCE6;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    background-color: white; /* Adjust as needed */
+}
+
+.profile-img {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    border-radius: 50%; /* Makes it a circle */
+    object-fit: cover; /* Ensures the image fills the space */
+}
         </style>
     </head>
 
@@ -117,29 +149,56 @@
                     </div>
                 </div>
                 <!---navigation ending --->
-
     <div class="main-content">
+        <div class="profile-header">
+    <img src="persona1.png" alt="Profile Picture" class="profile-img">
+</div>
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h4>July 2024</h4>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEventModal">Add Event +</button>
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#event">
+  Add Event +
+</button>
 
-            <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="addEventModalLabel">Modal title</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      ...
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
+<!-- Modal -->
+  <div class="modal fade" id="event" tabindex="-1" aria-labelledby="add" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add">New Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="eventTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="eventTitle" placeholder="Title">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Date and Time</label>
+                            <input type="datetime-local" class="form-control" id="eventDateTime">
+                        </div>
+                        <div class="mb-3">
+                            <label for="addPeople" class="form-label">Add People</label>
+                            <input type="text" class="form-control" id="addPeople" placeholder="Enter names or emails">
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventOverview" class="form-label">Overview of Project</label>
+                            <textarea class="form-control" id="eventOverview" rows="3" placeholder="Enter details"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="uploadFiles" class="form-label">Upload Files</label>
+                            <input type="file" class="form-control" id="uploadFiles">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
                 </div>
             </div>
+        </div>
+    </div>
 
         </div>
         <table class="calendar table">
@@ -212,5 +271,8 @@
                 </div>
             </div>
         </div>
+        <!-- LOAD BOOTSTRAP JAVASCRIPT - DO NOT DELETE -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- END LOADING BOOTSTRAP JAVASCRIPT -->
     </body>
 </html>
