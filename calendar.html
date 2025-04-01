@@ -32,6 +32,31 @@
                 min-height: 170vh;
                 padding: 1rem;
             }
+            .sidebar a {
+    position: relative;
+    color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+.sidebar a.active {
+    background-color: white;
+    color: #450084;
+    font-weight: bold;
+}
+.sidebar a:hover {color: black;}
+.sidebar a::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 10px;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
             .logo {
                 position: relative;
                 vertical-align: t;
@@ -144,33 +169,21 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <!--navigation example-->
-  <div class="sidebar">
-        <h3>JMU CARE</h3>
-        <a href="#">Home</a>
-        <a href="#">Task</a>
-        <a href="#">Your Team</a>
-        <a href="#">Message</a>
-        <a href="#">Docs</a>
-        <a href="#" class="bg-light text-dark">Calendar</a>
-        <a href="#">Settings</a>
-    </div>
-    <!--navigation example-->
                 <div class="column sidebar">
                     <img src="images/JMUCare.png" alt="jmucarelogo" class="logo img-fluid w-100" style="vertical-align: top;">
-                    <div class="row">
-                        <div class="tabs btn-group-vertical p-3" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='main.html'">Home</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='projects.html'">Projects</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='tasks.html'">Tasks</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='calendar.html'">Calendar</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='grants.html'">Grants</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='team.html'">Your Team</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='messages.html'">Messages</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='settings.html'">Settings</button>
+                      <div class="row">
+                      <a href="main.html">Home</a>
+                      <a href="projects.html">Projects</a>
+                           <a href="tasks.html">Tasks</a>
+        <a href="grants.html">Grants</a>
+        <a href="team.html">Your Team</a>
+        <a href="messages.html">Message</a>
+        <a href="calendar.html" class="active">Calendar</a>
+        <a href="settings.html">Settings</a>
+                
+                            
                         </div>
                     </div>
-                </div>
                 <!---navigation ending --->
                   <div class="main-content">
                 <div class="header-container">
