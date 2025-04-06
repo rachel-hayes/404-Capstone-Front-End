@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="JMU CARE" />
-        <meta name="author" content="Ace Houston"/>
-        <title>JMU CARE Calendar</title>
+        <meta name="author" content="Ace Houston and Emma Foy"/>
+        <title>JMU CARE Messages</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <!-- LOAD BOOTSTRAP CSS - DO NOT DELETE -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -13,13 +13,16 @@
   <!-- END LOADING BOOTSTRAP CSS -->
         <style>
             html, body {
-                padding: 0;
-                height: 100vh;
+                min-height: 100%;
             }
             .container {
                 display: flex;
                 height: 100%;
             }
+            .container-fluid {
+    display: flex;
+    min-height: 100%;
+}
             .column {
                 justify-content: center;
                 align-items: center;
@@ -27,20 +30,45 @@
                 height: 100%;
             }
             .sidebar {
-                flex: .5;
+                flex: .324;
                 background: #450084;
                 color: white;
-                min-height: 100vh;
+                min-height: 170vh;
                 padding: 1rem;
             }
+            .sidebar a {
+    position: relative;
+    color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+.sidebar a.active {
+    background-color: white;
+    color: #450084;
+    font-weight: bold;
+}
+.sidebar a:hover {color: black;}
+.sidebar a::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 10px;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
             .logo {
                 position: relative;
-                vertical-align: top;
+                vertical-align: t;
                 background-color: white;
                 margin-bottom: 20px;
             }
             .tab {
-                padding: 20 20 20 20;
+                padding: 20px 20px 20px 20px;
             }
             .tabs button {
                 position: absolute;
@@ -58,7 +86,7 @@
             }
             .main-content {
                 flex: 1.5;
-                background-color:white;
+                background-color:white; padding: 20px;
             }
             .todays-task {
             background-color: #eee;
@@ -66,7 +94,7 @@
             width: 500px;
             box-shadow: 0 4px 8px rgba(181, 153, 206, 0.815);
             border-radius: 50px;
-            text-align: top;
+            text-align: left;
             }
             .project-window {
             background-color: #eee;
@@ -74,44 +102,290 @@
             width: 500px;
             box-shadow: 0 4px 8px rgba(181, 153, 206, 0.815);
             border-radius: 50px;
-            text-align: top;
+            text-align: left;
             }
-            .right-section {
-                flex: 0.8;
-            }
+   
+        .main-content {
+            flex-grow: 1;
+            padding: 50px;
+        }
+        .calendar {
+            width: 100%;
+            border-collapse: collapse; 
+            background-color: #F4EFE1;}
+
+           .calendar td {background-color: #DACCE6;}
+
+        .calendar th, .calendar td {
+            border: 1px solid #ddd;
+            text-align: center;
+            height: 60px;
+        }
+        .calendar th {
+            background-color: #6A0DAD;
+            color: white;
+        }
+        .calendar th.selected {
+    background-color: #DACCE6 !important; /* Highlighted yellow */
+    color: black;
+}
+.modal-content {
+    background-color: #DACCE6; /* Light gray background */
+    color: #343a40; /* Dark text */
+}
+.btn-primary {
+    background-color: #6A0DAD; /* Custom purple */
+    border-color: #6f42c1;
+}
+
+.btn-primary:hover {
+    background-color: #DACCE6;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;
+    background-color: white; /* Adjust as needed */
+}
+
+.profile-img {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    border-radius: 50%; /* Makes it a circle */
+    object-fit: cover; /* Ensures the image fills the space */
+}
+
+.header-container {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between; /* Space items evenly */
+    align-items: center;
+
+    background-color: white;
+    border-bottom: 2px solid #ddd; /* Optional divider */
+    flex-direction: row-reverse; /* Switches the order */
+}
+.message-area {
+    flex-grow: 1;  /* Makes the message area take up the remaining space */
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+    .message-header {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .message-content {
+      padding: 20px;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .message-box {
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      max-width: 60%;
+    }
+
+    .message-box.sent {
+      background-color: #f1f1f1;
+      margin-left: auto;
+    }
+
+    .message-box.received {
+      background-color: #e9ecef;
+    }
+
+    .input-message {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: calc(100% - 40px);
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+      .message-container {
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    padding: 1rem;
+}
+
+   .box {
+    width: 300px;  /* Sets fixed width for the groups and people area */
+    background-color: #6f42c1;
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+    margin-right: 20px;  /* Adds space between the sidebar and message area */
+}
+
+    .box h5 {
+      margin-bottom: 20px;
+    }
+
+    .card {
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card-body {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
         </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     </head>
 
     <body>
-        <div class="container-fluid">
+      
+         <div class="container-fluid">
             <div class="row">
-
                 <div class="column sidebar">
                     <img src="images/JMUCare.png" alt="jmucarelogo" class="logo img-fluid w-100" style="vertical-align: top;">
-                    <div class="row">
-                        <div class="tabs btn-group-vertical p-3" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='main.html'">Home</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='projects.html'">Projects</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='tasks.html'">Tasks</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='calendar.html'">Calendar</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='grants.html'">Grants</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='team.html'">Your Team</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='messages.html'">Messages</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='settings.html'">Settings</button>
+                      <div class="row">
+                        <a href="main.html"><i class="bi bi-house-door-fill me-2"></i>Home</a>
+<a href="projects.html"><i class="bi bi-kanban-fill me-2"></i>Projects</a>
+<a href="tasks.html"><i class="bi bi-list-check me-2"></i>Tasks</a>
+<a href="grants.html"><i class="bi bi-cash-coin me-2"></i>Grants</a>
+<a href="team.html"><i class="bi bi-people-fill me-2"></i>People</a>
+<a href="messages.html" class="active"><i class="bi bi-chat-dots-fill me-2"></i>Message</a>
+<a href="calendar.html"><i class="bi bi-calendar-event-fill me-2"></i>Calendar</a>
+<a href="settings.html"><i class="bi bi-gear-fill me-2"></i>Settings</a>
+                           
                         </div>
                     </div>
                 </div>
+                
 
-                <div class="column main-content">
-                    <div class="top-section-content justify-content-between align-items-start mb-4">
-                        <div>
-                            <h5><strong>In Development!!</strong></h5>
-                        </div>
-                    </div>
-                </div>
+  <div class="message-container">
+    <!-- Sidebar (Groups & People) -->
+    <div class="box">
+      <div>
+        <h5>Groups</h5>
+        <div class="card" onclick="openChat('Project 2')">
+          <div class="card-body">
+            <img src="https://via.placeholder.com/40" alt="Group" class="profile-img">
+            <span>Project 2</span>
+          </div>
+        </div>
+        <div class="card" onclick="openChat('Project 5')">
+          <div class="card-body">
+            <img src="https://via.placeholder.com/40" alt="Group" class="profile-img">
+            <span>Project 5</span>
+          </div>
+        </div>
+        <div class="card" onclick="openChat('Managers')">
+          <div class="card-body">
+            <img src="https://via.placeholder.com/40" alt="Group" class="profile-img">
+            <span>Managers</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h5>People</h5>
+        <div class="card" onclick="openChat('Anil')">
+          <div class="card-body">
+            <img src="https://via.placeholder.com/40" alt="Anil" class="profile-img">
+            <span>Anil</span>
+          </div>
+        </div>
+        <div class="card" onclick="openChat('Chuuthiya')">
+          <div class="card-body">
+            <img src="https://via.placeholder.com/40" alt="Chuuthiya" class="profile-img">
+            <span>Chuuthiya</span>
+          </div>
+        </div>
+        <div class="card" onclick="openChat('Mary ma\'am')">
+          <div class="card-body">
+            <img src="https://via.placeholder.com/40" alt="Mary" class="profile-img">
+            <span>Mary ma'am</span>
+          </div>
+        </div>
+        <div class="card" onclick="openChat('Bill Mates')">
+          <div class="card-body">
+            <img src="https://via.placeholder.com/40" alt="Bill Mates" class="profile-img">
+            <span>Bill Mates</span>
+          </div>
+        </div>
+        <div class="card" onclick="openChat('Victoria H')">
+          <div class="card-body">
+            <img src="https://via.placeholder.com/40" alt="Victoria H" class="profile-img">
+            <span>Victoria H</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                <div class="column right-section">
-                </div>
+    <!-- Message Area -->
+    <div class="message-area">
+      <!-- Message Header -->
+      <div class="message-header d-flex justify-content-between">
+        <h5>Mark Magnum</h5>
+        <span><i class="bi bi-circle-fill text-success" style="font-size: 10px;"></i> Online</span>
+      </div>
+
+      <!-- Message Content -->
+      <div class="message-content">
+        <!-- Sent Message -->
+        <div class="message-box sent">
+          <p><strong>Mark Magnum:</strong> Hey here is the project and the png that is for the assignment. Let me know
+            what you think.</p>
+        </div>
+        <!-- Received Message -->
+        <div class="message-box received">
+          <p><strong>Paul Tibbs:</strong> That looks good!</p>
+        </div>
+        <!-- Sent Message -->
+        <div class="message-box sent">
+          <p><strong>Mark Magnum:</strong> Okay!</p>
+        </div>
+        <!-- Received Message -->
+        <div class="message-box received">
+          <p><strong>Paul Tibbs:</strong> Sounds good, I will send over another project.</p>
+        </div>
+      </div>
+
+      <!-- Input Message -->
+      <div class="input-message">
+        <form>
+          <input type="text" class="form-control" placeholder="Type your message..." />
+          <button type="submit" class="btn btn-primary mt-2 w-100">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script>
+    function openChat(name) {
+        alert("Opening chat with " + name);
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
             </div>
         </div>
     </body>

@@ -194,6 +194,7 @@
 }
 
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     </head>
 
@@ -254,3 +255,108 @@
                 <div class="day">16</div>
               </div>
             </div>
+
+               <div class="col-md-6">
+            <div class="chart-box">
+              <h6>Grant Progress Overview</h6>
+              <canvas id="lineChart"></canvas>
+            </div>
+            <div class="chart-box">
+              <h6>Project Completion Status</h6>
+              <canvas id="radarChart"></canvas>
+            </div>
+          </div>
+        </div>
+                    <!-- Quick Stats -->
+                    <div class="col-12 col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Grants Awarded</h5>
+                                <p class="card-text">10</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Current Projects</h5>
+                                <p class="card-text">5 In Progress</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Active Partnerships</h5>
+                                <p class="card-text">3</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="row my-4">
+          <div class="col-5">
+            <h3>Project Completion Metrics</h3>
+            <canvas id="projectCompletionChart"></canvas>
+          </div>
+        </div>
+                   
+<script>
+// Initialize Project Completion Metrics (Doughnut Chart)
+const projectCompletionChart = new Chart(document.getElementById('projectCompletionChart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Completed', 'In Progress', 'Not Started'],
+        datasets: [{
+            label: 'Project Status',
+            data: [60, 30, 10],
+            backgroundColor: ['rgb(75, 192, 192)', 'rgb(255, 159, 64)', 'rgb(255, 99, 132)'],
+        }]
+    },
+    options: {
+        responsive: true
+    }
+});
+
+// Initialize Line Chart (Grant Progress Overview)
+const lineChart = new Chart(document.getElementById('lineChart'), {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+            label: 'Grant Progress',
+            data: [20, 30, 45, 60, 80, 100, 95],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }]
+    },
+    options: {
+        responsive: true
+    }
+});
+
+// Initialize Radar Chart (Project Completion Status)
+const radarChart = new Chart(document.getElementById('radarChart'), {
+    type: 'radar',
+    data: {
+        labels: ['Research', 'Design', 'Development', 'Testing', 'Launch'],
+        datasets: [{
+            label: 'Project Status',
+            data: [80, 50, 70, 30, 100],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgb(75, 192, 192)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true
+    }
+});
+</script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
