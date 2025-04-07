@@ -63,7 +63,7 @@
 }
             .logo {
                 position: relative;
-                vertical-align: t;
+                vertical-align: top;
                 background-color: white;
                 margin-bottom: 20px;
             }
@@ -114,6 +114,18 @@
       color: white;
     }
 
+
+.header-container {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between; /* Space items evenly */
+    align-items: center;
+    background-color: white;
+    border-bottom: 2px solid #ddd; /* Optional divider */
+  /* Switches the order */
+}
+
 .profile-header {
     display: flex;
     justify-content: flex-end;
@@ -129,16 +141,6 @@
     object-fit: cover; /* Ensures the image fills the space */
 }
 
-.header-container {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-between; /* Space items evenly */
-    align-items: center;
-    background-color: white;
-    border-bottom: 2px solid #ddd; /* Optional divider */
-    flex-direction: row-reverse; /* Switches the order */
-}
  .right-panel {
       background-color: #DACCE6;
       border-radius: 20px;
@@ -193,7 +195,37 @@
   box-shadow: 0 4px 12px rgba(69, 0, 132, 0.2); color: #450084;
 }
 
+
+.dashboard-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.left-content {
+  flex: 2;
+  padding-right: 20px;
+}
+
+.right-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-content .calendar-container,
+.right-content .card {
+  background-color: #F4EFE1;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
         </style>
+
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     </head>
@@ -219,113 +251,100 @@
                 <!---navigation ending --->
                      <!-- Main Content -->
       <div class="col-md-10 main-content">
-         <div class="header-container">
-            <div class="profile-section">
-        <img src="images/persona2.jpg" alt="Profile Picture" class="profile-img">
-        <span class="profile-name">persona name</span>
-    </div>
-     <h4 class="calendar-title">Welcome Center Director!</h4>
+    <div class="header-container">
+  <h2 class="welcome-text">Welcome Back!</h2>
+  <div class="profile-section d-flex align-items-center">
+    <img src="images/persona2.jpg" alt="Profile Picture" class="profile-img me-2">
+    <span class="profile-name">Anna Smith</span>
+  </div>
 </div>
+<hr class="my-2">
 
-    <!-- Right Panel Calendar -->
-          <div class="col-md-6">
-            <!-- Mini Calendar -->
-            <div class="calendar-container mb-4">
-              <div class="d-flex justify-content-between align-items-center">
-                <button class="btn btn-sm"><i class="bi bi-chevron-left"></i></button>
-                <h6 class="mb-0">July 2024</h6>
-                <button class="btn btn-sm"><i class="bi bi-chevron-right"></i></button>
-              </div>
-              <div class="d-flex justify-content-center text-muted small mt-2">
-                <div class="mx-1">S</div>
-                <div class="mx-1">M</div>
-                <div class="mx-1">T</div>
-                <div class="mx-1">W</div>
-                <div class="mx-1">T</div>
-                <div class="mx-1">F</div>
-                <div class="mx-1">S</div>
-              </div>
-              <div class="d-flex flex-wrap justify-content-center mt-2">
-                <div class="day">10</div>
-                <div class="day">11</div>
-                <div class="day">12</div>
-                <div class="day">13</div>
-                <div class="day selected">14</div>
-                <div class="day">15</div>
-                <div class="day">16</div>
-              </div>
-            </div>
+<div class="row mb-4">
+  <!-- Project Completion Chart -->
+  <div class="col-md-6">
+    <div class="p-3" style="background-color: #F4EFE1; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+      <h5>Project Completion Metrics</h5>
+      <canvas id="projectCompletionChart"></canvas>
+    </div>
+  </div>
 
-               <div class="col-md-6">
-            <div class="chart-box">
-              <h6>Grant Progress Overview</h6>
-              <canvas id="lineChart"></canvas>
-            </div>
-            <div class="chart-box">
-              <h6>Project Completion Status</h6>
-              <canvas id="radarChart"></canvas>
-            </div>
-          </div>
-        </div>
-                    <!-- Quick Stats -->
-                    <div class="col-12 col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Grants Awarded</h5>
-                                <p class="card-text">10</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Current Projects</h5>
-                                <p class="card-text">5 In Progress</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Active Partnerships</h5>
-                                <p class="card-text">3</p>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="row my-4">
-          <div class="col-5">
-            <h3>Project Completion Metrics</h3>
-            <canvas id="projectCompletionChart"></canvas>
-          </div>
-        </div>
-                   
-<script>
-// Initialize Project Completion Metrics (Doughnut Chart)
-const projectCompletionChart = new Chart(document.getElementById('projectCompletionChart'), {
-    type: 'doughnut',
-    data: {
-        labels: ['Completed', 'In Progress', 'Not Started'],
-        datasets: [{
-            label: 'Project Status',
-            data: [60, 30, 10],
-            backgroundColor: ['rgb(75, 192, 192)', 'rgb(255, 159, 64)', 'rgb(255, 99, 132)'],
-        }]
-    },
-    options: {
-        responsive: true
-    }
-});
+  <!-- Calendar beside Project Chart -->
+  <div class="col-md-6">
+    <div class="calendar-container mb-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <button class="btn btn-sm"><i class="bi bi-chevron-left"></i></button>
+        <h6 class="mb-0">July 2024</h6>
+        <button class="btn btn-sm"><i class="bi bi-chevron-right"></i></button>
+      </div>
+      <div class="d-flex justify-content-center text-muted small mb-2">
+        <div class="mx-1">S</div>
+        <div class="mx-1">M</div>
+        <div class="mx-1">T</div>
+        <div class="mx-1">W</div>
+        <div class="mx-1">T</div>
+        <div class="mx-1">F</div>
+        <div class="mx-1">S</div>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center">
+        <div class="day">10</div>
+        <div class="day">11</div>
+        <div class="day">12</div>
+        <div class="day">13</div>
+        <div class="day selected">14</div>
+        <div class="day">15</div>
+        <div class="day">16</div>
+      </div>
+    </div>
+  
 
-// Initialize Line Chart (Grant Progress Overview)
-const lineChart = new Chart(document.getElementById('lineChart'), {
+  <!-- Stat Cards below calendar -->
+  <div class="card mb-3">
+    <h5>Total Grants Awarded</h5>
+    <p>10</p>
+  </div>
+  <div class="card mb-3">
+    <h5>Current Projects</h5>
+    <p>5 In Progress</p>
+  </div>
+  <div class="card">
+    <h5>Active Partnerships</h5>
+    <p>3</p>
+  </div>
+</div>
+</div>
+   <!-- Row 2: Research Funding & Partnerships -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="p-3" style="background-color: #F4EFE1; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+        <h5>Research Funding Allocation</h5>
+        <canvas id="fundingAllocationChart"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="p-3" style="background-color: #F4EFE1; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+        <h5>Partnership Development Stages</h5>
+        <canvas id="partnershipStagesChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+
+    
+  <script>
+    const lineChart = new Chart(document.getElementById('lineChart'), {
     type: 'line',
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
         datasets: [{
             label: 'Grant Progress',
             data: [20, 30, 45, 60, 80, 100, 95],
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            fill: false,  // Set to true if you want the area under the line to be filled
+            borderColor: 'rgb(34, 193, 195)',  // Change the line color here
+            backgroundColor: 'rgba(34, 193, 195, 0.2)',  // Optional: color for the filled area under the line
             tension: 0.1
         }]
     },
@@ -334,26 +353,58 @@ const lineChart = new Chart(document.getElementById('lineChart'), {
     }
 });
 
-// Initialize Radar Chart (Project Completion Status)
-const radarChart = new Chart(document.getElementById('radarChart'), {
-    type: 'radar',
-    data: {
-        labels: ['Research', 'Design', 'Development', 'Testing', 'Launch'],
-        datasets: [{
-            label: 'Project Status',
-            data: [80, 50, 70, 30, 100],
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgb(75, 192, 192)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true
-    }
-});
-</script>
-
-
+          // Partnership Development Stages (Bar Chart)
+        const partnershipStagesChart = new Chart(document.getElementById('partnershipStagesChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Prospect', 'Initial Contact', 'Negotiation', 'Active', 'Completed'],
+                datasets: [{
+                    label: 'Number of Partnerships',
+                    data: [3, 5, 2, 4, 6],
+                    backgroundColor: 'rgb(54, 162, 235)',
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {beginAtZero: true},
+                    y: {beginAtZero: true}
+                }
+            }
+        });
+            // Research Funding Allocation (Pie Chart)
+        const fundingAllocationChart = new Chart(document.getElementById('fundingAllocationChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Federal Grants', 'State Grants', 'Internal Funding', 'Private Foundations'],
+                datasets: [{
+                    label: 'Funding Sources',
+                    data: [40, 20, 30, 10],
+                    backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)'],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+                   
+ 
+        // Project Completion Metrics (Progress Bar)
+        const projectCompletionChart = new Chart(document.getElementById('projectCompletionChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Completed', 'In Progress', 'Not Started'],
+                datasets: [{
+                    label: 'Project Status',
+                    data: [60, 30, 10],
+                    backgroundColor: ['rgb(75, 192, 192)', 'rgb(255, 159, 64)', 'rgb(255, 99, 132)'],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
