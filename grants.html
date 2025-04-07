@@ -4,113 +4,125 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="JMU CARE" />
-        <meta name="author" content="Ace Houston"/>
-        <title>JMU CARE Calendar</title>
+        <meta name="author" content="Ace Houston and Emma Foy"/>
+        <title>JMU CARE Grants</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <!-- LOAD BOOTSTRAP CSS - DO NOT DELETE -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link href="styles.css" rel="stylesheet">
-  <!-- END LOADING BOOTSTRAP CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
         <style>
-            html, body {
-                padding: 0;
-                height: 100vh;
-            }
-            .container {
-                display: flex;
-                height: 100%;
-            }
-            .column {
-                justify-content: center;
-                align-items: center;
-                border: 1px solid #aaa;
-                height: 100%;
-            }
-            .sidebar {
-                flex: .5;
-                background: #450084;
-                color: white;
-                min-height: 100vh;
-                padding: 1rem;
-            }
-            .logo {
-                position: relative;
-                vertical-align: top;
-                background-color: white;
-                margin-bottom: 20px;
-            }
-            .tab {
-                padding: 20 20 20 20;
-            }
-            .tabs button {
-                position: absolute;
-                width: 40%;
-                padding: 10px;
-                background-color: #450084;
-                color: white;
-                
-                border-radius: 20px; /* Rounded button */
-                cursor: pointer;
-                transition: 0.3s ease;
-            }
-            .tabs button:hover {
-                background-color: #B599CE;
-            }
-            .main-content {
-                flex: 1.5;
-                background-color:white;
-            }
-            .todays-task {
-            background-color: #eee;
-            padding: 100px;
-            width: 500px;
-            box-shadow: 0 4px 8px rgba(181, 153, 206, 0.815);
-            border-radius: 50px;
-            text-align: top;
-            }
-            .project-window {
-            background-color: #eee;
-            padding: 100px;
-            width: 500px;
-            box-shadow: 0 4px 8px rgba(181, 153, 206, 0.815);
-            border-radius: 50px;
-            text-align: top;
-            }
-            .right-section {
-                flex: 0.8;
-            }
+            html, body { min-height: 100%; }
+            .container-fluid { display: flex; min-height: 100%; }
+            .sidebar { flex: .35; background: #450084; color: white; min-height: 170vh; padding: 1rem; }
+            .sidebar a { color: white; display: block; padding: 10px; text-decoration: none; margin-bottom: 10px; }
+            .sidebar a.active { background-color: white; color: #450084; font-weight: bold; }
+            .sidebar a:hover { color: black; }
+            .logo { background-color: white; margin-bottom: 20px; }
+            .main-content { flex: 1.5; background-color:white; padding: 20px; }
+            .header-container { display: flex; justify-content: space-between; align-items: center; background-color: white; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px; flex-direction: row-reverse;  }
+            .profile-section { display: flex; align-items: center; }
+            .profile-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 10px; }
+            .stats-card { background-color: #F4EFE1; padding: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+            .grants-table th, .grants-table td { vertical-align: middle; }
         </style>
     </head>
-
     <body>
         <div class="container-fluid">
             <div class="row">
-
                 <div class="column sidebar">
-                    <img src="images/JMUCare.png" alt="jmucarelogo" class="logo img-fluid w-100" style="vertical-align: top;">
+                    <img src="images/JMUCare.png" alt="jmucarelogo" class="logo img-fluid w-100">
                     <div class="row">
-                        <div class="tabs btn-group-vertical p-3" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='main.html'">Home</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='projects.html'">Projects</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='tasks.html'">Tasks</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='calendar.html'">Calendar</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='grants.html'">Grants</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='team.html'">Your Team</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='messages.html'">Messages</button>
-                            <button type="button" class="btn btn-secondary border" onclick="location.href='settings.html'">Settings</button>
-                        </div>
+                        <a href="main.html"><i class="bi bi-house-door-fill me-2"></i>Home</a>
+                        <a href="projects.html"><i class="bi bi-kanban-fill me-2"></i>Projects</a>
+                        <a href="tasks.html"><i class="bi bi-list-check me-2"></i>Tasks</a>
+                        <a href="grants.html" class="active"><i class="bi bi-cash-coin me-2"></i>Grants</a>
+                        <a href="team.html"><i class="bi bi-people-fill me-2"></i>People</a>
+                        <a href="messages.html"><i class="bi bi-chat-dots-fill me-2"></i>Message</a>
+                        <a href="calendar.html"><i class="bi bi-calendar-event-fill me-2"></i>Calendar</a>
+                        <a href="settings.html"><i class="bi bi-gear-fill me-2"></i>Settings</a>
                     </div>
                 </div>
-
-                <div class="column main-content">
-                    <div class="top-section-content justify-content-between align-items-start mb-4">
-                        <div>
-                            <h5><strong>In Development!!</strong></h5>
+                <div class="col-md-10 main-content">
+                    <div class="header-container">
+                        <div class="profile-section">
+                            <img src="images/persona2.jpg" alt="Profile Picture" class="profile-img">
+                            <span class="profile-name">Anna Smith</span>
+                        </div>
+                        <h4 class="calendar-title">Grants Dashboard</h4>
+                    </div>
+                    <!-- Stat Cards -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stats-card">
+                                <h5>Total Grants</h5>
+                                <p>$120,000</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stats-card">
+                                <h5>Spent</h5>
+                                <p>$78,500</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stats-card">
+                                <h5>Active Projects</h5>
+                                <p>5</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="column right-section">
+                    <!-- Grants Table -->
+                    <div class="mt-4">
+                        <h5>Grant Details</h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped grants-table">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Grant Name</th>
+                                        <th>Project</th>
+                                        <th>Total Amount</th>
+                                        <th>Amount Spent</th>
+                                        <th>Remaining</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>STEM Outreach Fund</td>
+                                        <td>Robotics for Kids</td>
+                                        <td>$20,000</td>
+                                        <td>$15,000</td>
+                                        <td>$5,000</td>
+                                        <td><span class="badge bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Health Equity Grant</td>
+                                        <td>Community Clinics</td>
+                                        <td>$50,000</td>
+                                        <td>$38,000</td>
+                                        <td>$12,000</td>
+                                        <td><span class="badge bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Innovation Fund</td>
+                                        <td>Student Tech Lab</td>
+                                        <td>$30,000</td>
+                                        <td>$25,500</td>
+                                        <td>$4,500</td>
+                                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arts & Culture Award</td>
+                                        <td>Art in the Park</td>
+                                        <td>$20,000</td>
+                                        <td>$0</td>
+                                        <td>$20,000</td>
+                                        <td><span class="badge bg-secondary">Not Started</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
