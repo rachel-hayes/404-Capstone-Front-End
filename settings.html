@@ -79,6 +79,10 @@
             .right-section {
                 flex: 0.8;
             }
+            .card {
+                margin-top: 30pt;
+                margin-bottom: 30pt;
+            }
         </style>
     </head>
 
@@ -103,15 +107,32 @@
                 </div>
 
                 <div class="column main-content">
-                    <div class="top-section-content justify-content-between align-items-start mb-4">
-                        <div>
-                            <h5><strong>In Development!!</strong></h5>
+                        <div class="card">
+                          <h5 class="card-header">Account Settings</h5>
+                          <div class="card-body">
+                            <h5 class="card-title">Change Password</h5>
+                            <p class="card-text">Update your password for security.</p>
+                            <a href="#" class="btn btn-primary">Change Password</a>
+                          </div>
                         </div>
-                    </div>
+                        <div class="card">
+                          <h5 class="card-header">User Management</h5>
+                          <div class="card-body">
+                            <h5 class="card-title">Change User Permissions</h5>
+                            <p class="card-text">Modify user roles and permissions.</p>
+                            <a href="#" class="btn btn-primary">Manage Permissions</a>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <h5 class="card-header">Log Out</h5>
+                          <div class="card-body">
+                            <p class="card-text">End your current session securely.</p>
+                            <a href="#" class="btn btn-primary">Log Out</a>
+                          </div>
+                        </div>
                 </div>
 
-                <div class="column right-section">
-                </div>
+               
             </div>
         </div>
     </body>
