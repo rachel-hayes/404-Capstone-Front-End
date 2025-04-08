@@ -67,6 +67,18 @@
                 background-color: white;
                 margin-bottom: 20px;
             }
+               .modal-content {
+      background-color: #DACCE6;
+      color: #343a40;
+    }
+
+    .btn-primary {
+      background-color: #6A0DAD;
+      border-color: #6f42c1;
+    }
+     .btn-primary:hover {
+      background-color: black;
+    }
             .tab {
                 padding: 20px 20px 20px 20px;
             }
@@ -191,25 +203,6 @@
     }
 .clickable-card:hover {
   box-shadow: 0 4px 12px rgba(69, 0, 132, 0.2); color: #450084;
-}
-.modal-content {
-  background-color: #F4EFE1 !important; /* Set to your desired background */
-  color: #450084; /* Text color */
-}
-
-.btn {
-  background-color: #450084 !important; /* Adding !important to ensure it is applied */
-  border-color: #450084 !important;
-  color: white !important; /* Ensuring text color stays white */
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #6A2A9D; /* Lighter purple on hover */
-  border-color: #6A2A9D; /* Lighter purple border on hover */
 }
 
   
@@ -670,7 +663,7 @@
       <div class="modal-body">
         <form id="activityForm">
           <div class="mb-3">
-            <label for="projectTitle" class="form-label">Project / Grant Proposal Title:</label>
+            <label for="projectTitle" class="form-label">Title:</label>
             <input type="text" class="form-control" id="projectTitle" placeholder="Enter project name or grant title" required>
           </div>
           <div class="mb-3">
@@ -685,7 +678,7 @@
             <label for="additionalNotes" class="form-label">Additional Notes:</label>
             <textarea class="form-control" id="additionalNotes" rows="3" placeholder="Enter any notes or comments"></textarea>
           </div>
-          <button type="submit" class="btn">Save Activity</button>
+          <button type="submit" class="btn btn-primary">Save Activity</button>
         </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
